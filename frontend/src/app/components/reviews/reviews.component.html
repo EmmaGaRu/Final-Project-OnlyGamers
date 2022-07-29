@@ -1,0 +1,68 @@
+<app-nav-bar></app-nav-bar>
+
+<body>
+  <div class="form-group" class="container">
+    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit(); form.form.markAsUntouched()" #form="ngForm" validate>
+      <div>
+        <h1 class="text-uppercase mt-4">Leave your review</h1>
+      </div>
+
+      <label for="userName">User name</label>
+      <input class="form-control" id="userName" placeholder="Introduce your name" type="text" id="userName" required
+        [(ngModel)]="reviews.userName" name="name" #nameInput="ngModel" />
+      <p *ngIf="nameInput.invalid && nameInput.touched" class="error-msg">
+        Please introduce your name
+      </p>
+      <div class="form-group">
+        <label for="gamename">Game name</label>
+        <input class="form-control" id="gamename" placeholder="Introduce the game's name" type="text" id="gameName"
+          required [(ngModel)]="reviews.gameName" name="gamename" #gamenameInput="ngModel" />
+        <p *ngIf="gamenameInput.invalid && gamenameInput.touched" class="error-msg">
+          Please introduce the game's name
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="comment">Review</label>
+        <input class="form-control" id="comment" placeholder="Leave us your review" type="text" id="comment" required
+          [(ngModel)]="reviews.comment" name="comment" #commentInput="ngModel" />
+        <p *ngIf="commentInput.invalid && commentInput.touched" class="error-msg">
+          Please introduce your review
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="rate">Rate</label>
+        <input class="form-control" id="rate" placeholder="Introduce rate" type="number" id="rate" required
+          [(ngModel)]="reviews.rate" name="rate" #rateInput="ngModel" />
+        <p *ngIf="rateInput.invalid && rateInput.touched" class="error-msg">
+          Please introduce your rate
+        </p>
+      </div>
+      <div class="form-button">
+        <button type="submit" class="btn btn-light mt-3" [disabled]="form.invalid">
+          Send review
+        </button>
+      </div>
+
+      <div class="container mt-5">
+        <div class="row">
+          <h1 class="text-uppercase">Top 10 BEST rated games</h1>
+
+          <div *ngFor="let ranking of rankingList; let i = index" class="card col-sm-6 mb-2">
+            <div class="row">
+                <div class="card-body">
+                  <h3 class="card-title font-weight-bold text-uppercase">
+                    {{ i + 1 }}. {{ ranking[0] }}
+                  </h3>
+                  <p class="card-text" style="color: rgb(115, 30, 157)">
+                    Avg raiting: {{ ranking[1] }}
+                  </p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </form>
+</form>
+  </div>
+</body>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka-service" />
+        <module name="edge-service" />
+        <module name="proxy-videogames" />
+        <module name="proxy-review" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="edge-service" target="17" />
+      <module name="eureka-service" target="17" />
+      <module name="proxy-review" target="17" />
+      <module name="proxy-videogames" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="edge-service" options="-parameters" />
+      <module name="eureka-service" options="-parameters" />
+      <module name="proxy-review" options="-parameters" />
+      <module name="proxy-videogames" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,27 @@
+body {
+    height: 120%;
+}
+
+img{
+    height: 500px !important;
+    width: fit-content !important;
+    display:block;
+    margin:auto;
+}
+
+card {
+    width: 20px !important;
+
+}
+
+h1{
+    color: black;
+}
+
+h3{
+    color: black;
+}
+
+.text-bg-primary {
+    background-color: #f5d3f1 !important;
+}

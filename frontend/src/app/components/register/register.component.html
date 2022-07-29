@@ -1,0 +1,61 @@
+
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="/assets/images/ONLYGAMERS-02.png" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form" (ngSubmit)="register()" [formGroup]="registerForm">
+					<span class="login100-form-title">
+						Sign up
+					</span>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" formControlName="username" placeholder="Username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+						<mat-error *ngIf="usernameInput.hasError('required') && usernameInput.touched">
+							Username is <strong>required</strong>
+						</mat-error>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="password" formControlName="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+						<mat-error *ngIf="passwordInput.hasError('required') && passwordInput.touched">
+							Password is <strong>required</strong>
+						</mat-error>
+					</div>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Password Confirmation</mat-label>
+                        <!-- <input type="password" matInput formControlName="passwordConfirmation" placeholder="Passworrd Confirmation..."> -->
+                        <mat-error *ngIf="registerForm.hasError('passwordMatch') && passwordInput.valid && passwordConfirmationInput.touched">
+                            Passwords do not match
+                        </mat-error>
+                      </mat-form-field>
+
+					  <div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn" (click) = "register">
+							Sign up
+						</button>
+					</div>
+
+
+					<div class="text-center p-t-136">
+						<h4 class="register-text">Already have an account? <a [routerLink]="['/login']">Login</a></h4>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+

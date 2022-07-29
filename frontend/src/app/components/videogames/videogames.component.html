@@ -1,0 +1,23 @@
+<app-nav-bar></app-nav-bar>
+
+<body>
+  <div class="container">
+    <div class="row mb-3">
+      <input class="form-control mr-sm-2 mt-3" type="text" (keyup.enter)="findGame()" placeholder="Type a videogame name"
+        [(ngModel)]="name"/>
+      </div>
+      <div *ngIf="videogame.name !== ''">
+        <div class="card text-bg-primary" >
+          <img class="card-img-top" src="{{ videogame.image }}" alt="Card image cap">
+          <div class="card-body">
+            <h1 class="card-title text-uppercase"> {{ videogame.name }}</h1>
+            <p class="card-text"><span class="badge badge-warning">{{ videogame.genre }}</span></p>
+            <h3 class="card-text">{{ videogame.review }}</h3>
+          </div>
+          <div class="card-footer">
+            <h4 class="text-muted">Rate: {{ videogame.rate }}</h4>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
