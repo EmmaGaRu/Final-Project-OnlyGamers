@@ -3,6 +3,7 @@ package proxyvideogames.model;
 import proxyvideogames.enums.Genre;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Videogame {
@@ -71,5 +72,30 @@ public class Videogame {
 
     public int getRate() {
         return rate;
+    }
+
+    @Override
+    public String toString() {
+        return "Videogame{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
+                ", genre=" + genre +
+                ", review='" + review + '\'' +
+                ", rate=" + rate +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Videogame videogame = (Videogame) o;
+        return rate == videogame.rate && Objects.equals(id, videogame.id) && Objects.equals(name, videogame.name) && Objects.equals(image, videogame.image) && genre == videogame.genre && Objects.equals(review, videogame.review);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, image, genre, review, rate);
     }
 }

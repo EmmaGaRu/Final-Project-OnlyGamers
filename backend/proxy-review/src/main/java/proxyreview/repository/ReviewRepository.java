@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface ReviewRepository extends JpaRepository<UserReview, Long> {
     //Optional<UserReview> findById(Long id);
 
-    //Media de las valoraciones de los usuarios
+    //Media de las valoraciones de los usuarios por juego
     @Query(value ="SELECT game_name, AVG(rate) FROM user_review GROUP BY game_name ORDER BY AVG(rate) DESC LIMIT 10",
             nativeQuery = true)
     public List<Object[]> findMeanRate();

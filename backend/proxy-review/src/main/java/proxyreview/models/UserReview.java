@@ -1,5 +1,6 @@
 package proxyreview.models;
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class UserReview {
@@ -64,4 +65,30 @@ public class UserReview {
     public void setGameName(String gameName) {
         this.gameName = gameName;
     }
+
+    @Override
+    public String toString() {
+        return "UserReview{" +
+                //"id=" + id +
+                ", userName='" + userName + '\'' +
+                ", comment='" + comment + '\'' +
+                ", rate=" + rate +
+                ", gameName='" + gameName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserReview that = (UserReview) o;
+        return rate == that.rate && Objects.equals(id, that.id) && Objects.equals(userName, that.userName) && Objects.equals(comment, that.comment) && Objects.equals(gameName, that.gameName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userName, comment, rate, gameName);
+    }
 }
+
+
